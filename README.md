@@ -1,6 +1,4 @@
 # CVWO Assignment - memoit
 
----
-
-**Name:** Jason Qiu
+**Name:** Jason Qiu\
 **Matriculation Number:** A0235206N
