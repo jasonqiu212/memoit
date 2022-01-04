@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class Sidebar extends React.Component {
     render() {
-        return <div></div>;
+        return <h2>Sidebar component</h2>;
     }
 }
 

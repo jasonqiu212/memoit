@@ -4,12 +4,11 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-
-import Routes from "../routes/Index";
+import App from "../App";
 
 document.addEventListener("DOMContentLoaded", () => {
     ReactDOM.render(
-        <Routes />,
+        <App />,
         document.body.appendChild(document.createElement("div"))
     );
 });
