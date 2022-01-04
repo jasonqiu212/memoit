@@ -13,6 +13,7 @@ class Home extends React.Component {
         return (
             <div>
                 <Sidebar />
+                <h1>Home page</h1>
                 <Routes>
                     <Route path="all" element={<AllTasks />} />
                     <Route path="tag" element={<TagTasks />} />
