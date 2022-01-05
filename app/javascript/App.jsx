@@ -9,12 +9,14 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import AllTasks from "./components/AllTasks";
 import TagTasks from "./components/TagTasks";
+import Registration from "./pages/Registration";
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/login" element={<Login />} />
+                <Route path="/registration" element={<Registration />} />
                 <Route path="/" element={<Home />}>
                     <Route path="/" element={<AllTasks />} />
                     <Route path="tag" element={<TagTasks />} />
