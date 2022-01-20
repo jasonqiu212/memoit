@@ -1,57 +1,80 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 
-class Registration extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            email: "",
-            password: "",
-            password_confirmation: "",
-        };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-    handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
-    }
-    handleSubmit(event) {
-        console.log("form submitted");
-        event.preventDefault();
-    }
-    render() {
-        return (
-            <div>
-                <h1>Sign Up Now!</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                        required
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                        required
-                    />
-                    <input
-                        type="password"
-                        name="password_confirmation"
-                        placeholder="Password Confirmation"
-                        value={this.state.password_confirmation}
-                        onChange={this.handleChange}
-                        required
-                    />
-                    <button type="submit">Sign Up</button>
-                </form>
-            </div>
-        );
-    }
+function Registration(props) {
+  const [registrationData, setRegistrationData] = useState({
+    email: "",
+    password: "",
+    password_confirmation: "",
+  });
+
+  function handleChange(event) {
+    setRegistrationData((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
+  }
+
+  function handleSubmit(event) {
+    const { email, password, password_confirmation } = registrationData;
+    axios
+      .post(
+        "http://localhost:3000/registrations",
+        {
+          user: {
+            email: email,
+            password: password,
+            password_confirmation: password_confirmation,
+          },
+        },
+        { withCredentials: true }
+      )
+      .then((response) => {
+        if (response.data.status === "created") {
+          props.handleSuccessfulAuth(response.data);
+        } else {
+          console.log("Registration not successful!");
+        }
+      })
+      .catch((error) => {
+        console.log("Registration error", error);
+      });
+    event.preventDefault();
+  }
+
+  return (
+    <div>
+      <h1>Status: {props.loggedInStatus}</h1>
+      <h1>Sign Up Now!</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={registrationData.email}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={registrationData.password}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="password_confirmation"
+          placeholder="Password Confirmation"
+          value={registrationData.password_confirmation}
+          onChange={handleChange}
+          required
+        />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  );
 }
 
 export default Registration;
