@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
-  get 'logged_in', to: 'sessions#logged_in'
-  delete 'logout', to: 'sessions#logout'
+  get '/logged_in', to: 'sessions#logged_in'
+  delete '/logout', to: 'sessions#logout'
 
-  post 'registrations', to: 'registrations#create'
+  post '/registrations', to: 'registrations#create'
+
+  get '/tasks/all', to: 'tasks#index'
+  get '/tasks/tag', to: 'tasks#tagIndex'
+  post '/tasks', to: 'tasks#create'
+  put '/tasks/:id', to: 'tasks#update'
+  delete '/tasks/:id', to: 'tasks#destroy'
+
+  get '/tags', to: 'tags#index'
+  post '/tags', to: 'tags#create'
+  put '/tags/:id', to: 'tags#update'
+  delete '/tags/:id', to: 'tags#destroy'
 
   root 'homepage#index'
   get '/*path' => 'homepage#index'
