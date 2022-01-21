@@ -5,4 +5,5 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
 
   has_many :tags
+  has_many :tasks
 end
