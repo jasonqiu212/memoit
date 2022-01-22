@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #0f1315;
+}
+
+.row {
+  background: #1f2228;
+}
+
+input[type="email"],
+input[type="password"] {
+  background-color: #353d44;
+  border: none;
+  border-radius: 20px;
+  color: white;
+}
+
+input[type="email"]:focus {
+  background-color: #353d44;
+  border: none;
+  color: white;
+}
+
+input[type="password"]:focus {
+  background-color: #353d44;
+  border: none;
+  color: white;
+}
+
+.login-button {
+  border-radius: 20px;
+}

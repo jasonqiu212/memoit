@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "../../assets/stylesheets/login.css";
 
 function Login(props) {
   const [loginData, setLoginData] = useState({
@@ -40,30 +41,47 @@ function Login(props) {
   }
 
   return (
-    <div>
-      <h1>Status: {props.loggedInStatus}</h1>
-      <h1>Log In!</h1>
-      <Link to="/registration">Sign Up</Link>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={loginData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={loginData.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <section className="my-4 d-flex justify-content-center">
+      <div className="container row col-lg-5 shadow d-flex justify-content-center text-center py-5">
+        <h1 className="fw-bold text-white">memoit</h1>
+        <h3 className="fw-bolder text-white mb-4">Welcome back!</h3>
+        <form
+          onSubmit={handleSubmit}
+          className="row col-lg-10 justify-content-center"
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            className="form-control py-3 my-2"
+            value={loginData.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="form-control py-3 my-2"
+            value={loginData.password}
+            onChange={handleChange}
+            required
+          />
+          <button
+            type="submit"
+            className="btn btn-success btn-block login-button col-lg-8 py-2 my-3 fw-bold fs-5"
+          >
+            Login
+          </button>
+        </form>
+        <p className="text-white">
+          Don't have an account?{" "}
+          <Link to="/registration" className="text-decoration-none">
+            Register here
+          </Link>
+        </p>
+      </div>
+    </section>
   );
 }
 
