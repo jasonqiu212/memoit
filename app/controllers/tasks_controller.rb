@@ -1,19 +1,33 @@
 class TasksController < ApplicationController
   def index
-    # TODO: Filter for tasks under this user
-    task = Task.all
+    task = Task.where(user_id: params['user_id'])
     render json: task
   end
 
   def tagIndex
-    # TODO: Filter for tasks under this tag
-    task = Task.all
+    task = Task.where(tag_id: params['tag_id'])
     render json: task
   end
 
-  def create; end
+  def create
+    task =
+      Task.create!(
+        title: params['task']['title'],
+        description: params['task']['description'],
+        completed: params['task']['completed'],
+        tag_id: params['tag_id'],
+        user_id: params['user_id'],
+      )
+    if task
+      render json: { status: :created }
+    else
+      render json: { status: 500 }
+    end
+  end
 
   def update; end
 
-  def destroy; end
+  def destroy
+    User.find(params['id']).destroy
+  end
 end

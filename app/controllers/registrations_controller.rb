@@ -7,10 +7,15 @@ class RegistrationsController < ApplicationController
         password_confirmation: params['user']['password_confirmation'],
       )
     if user
+      allTag = Tag.create!(title: 'All', user_id: user.id)
       session[:user_id] = user.id
       render json: { status: :created, user: user }
     else
       render json: { status: 500 }
     end
+  end
+
+  def destroy
+    User.find(params['id']).destroy
   end
 end

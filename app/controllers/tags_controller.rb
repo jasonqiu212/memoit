@@ -1,12 +1,21 @@
 class TagsController < ApplicationController
   def index
-    tag = Tag.all
+    tag = Tag.where(user_id: session[:user_id])
     render json: tag
   end
 
-  def create; end
+  def create
+    tag = Tag.create!(title: params['title'], user_id: session[:user_id])
+    if tag
+      render json: { status: :created }
+    else
+      render json: { status: 500 }
+    end
+  end
 
   def update; end
 
-  def destroy; end
+  def destroy
+    Tag.find(params['id']).destroy
+  end
 end

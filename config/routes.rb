@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#logout'
 
   post '/registrations', to: 'registrations#create'
+  delete '/registrations/:id', to: 'registrations#destroy'
 
   get '/tasks/all', to: 'tasks#index'
   get '/tasks/tag', to: 'tasks#tagIndex'
