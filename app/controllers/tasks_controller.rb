@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    task = Task.where(user_id: params['user_id'])
+    task = Task.where(user_id: session[:user_id])
     render json: task
   end
 
@@ -14,9 +14,9 @@ class TasksController < ApplicationController
       Task.create!(
         title: params['task']['title'],
         description: params['task']['description'],
-        completed: params['task']['completed'],
-        tag_id: params['tag_id'],
-        user_id: params['user_id'],
+        completed: false,
+        tag_id: params['task']['tag_id'],
+        user_id: session[:user_id],
       )
     if task
       render json: { status: :created }

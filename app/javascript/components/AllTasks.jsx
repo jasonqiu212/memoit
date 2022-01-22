@@ -1,15 +1,39 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Task from "./Task";
 
-class AllTasks extends React.Component {
-    render() {
-        return (
-            <div>
-                <h2>All Tasks</h2>
-                <Task />
+function AllTasks(props) {
+  const [tasksData, setTasksData] = useState("");
+
+  const getTasks = () => {
+    axios
+      .get("http://localhost:3000/tasks/all", { withCredentials: true })
+      .then((response) => {
+        setTasksData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getTasks();
+  }, []);
+
+  return (
+    <div>
+      <h2>All Tasks</h2>
+      {tasksData &&
+        tasksData.map((task, key) => {
+          return (
+            <div key={key}>
+              <Task task={task} />
+              <br />
             </div>
-        );
-    }
+          );
+        })}
+    </div>
+  );
 }
 
 export default AllTasks;

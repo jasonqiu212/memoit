@@ -8,12 +8,12 @@ function Registration(props) {
     password_confirmation: "",
   });
 
-  function handleChange(event) {
+  const handleChange = (event) => {
     setRegistrationData((prev) => ({
       ...prev,
       [event.target.name]: event.target.value,
     }));
-  }
+  };
 
   function handleSubmit(event) {
     const { email, password, password_confirmation } = registrationData;

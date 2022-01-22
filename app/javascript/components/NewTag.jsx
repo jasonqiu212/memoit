@@ -26,7 +26,7 @@ function NewTag(props) {
   return (
     <form onSubmit={handleSubmit}>
       <input
-        name="Title"
+        name="title"
         placeholder="Title"
         value={tagTitle}
         onChange={handleChange}
