@@ -16,6 +16,6 @@ class TagsController < ApplicationController
   def update; end
 
   def destroy
-    Tag.find(params['id']).destroy
+    Tag.destroy_by(id: params['id'])
   end
 end

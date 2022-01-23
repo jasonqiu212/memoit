@@ -2,16 +2,24 @@ import React from "react";
 
 function Task(props) {
   return (
-    <div className="row d-flex align-items-center py-1 task-item">
+    <div className="d-flex align-items-center p-1 task-item">
       <input
         type="checkbox"
-        className="col-1 checkmark"
+        className="p-1"
         checked={props.task.completed}
         onChange={(event) =>
           props.handleCompletedStatusChange(props.task.completed, props.task.id)
         }
       />
-      <p className="fs-6 col-11 my-0 px-0">{props.task.title}</p>
+      <div className="col d-flex flex-column">
+        <p className="fs-6 my-0 ps-2">{props.task.title}</p>
+        <p className="fs-6 my-0 ps-2 text-secondary">
+          {props.task.description}
+        </p>
+      </div>
+
+      <i className="bi bi-pencil-square ms-auto p-2 hide-edit"></i>
+      <i className="bi bi-x-circle ms-auto p-2 hide-delete"></i>
     </div>
   );
 }

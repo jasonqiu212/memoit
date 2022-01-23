@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get '/tags', to: 'tags#index'
   post '/tags', to: 'tags#create'
-  put '/tags/:id', to: 'tags#update'
+  put '/tags', to: 'tags#update'
   delete '/tags/:id', to: 'tags#destroy'
 
   root 'homepage#index'

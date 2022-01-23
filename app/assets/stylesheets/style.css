@@ -59,6 +59,10 @@ input[type="password"]:focus {
   color: #fff;
 }
 
+.nav-link:hover > .hide-delete {
+  display: flex;
+}
+
 .nav-link:active {
   color: #fff;
 }
@@ -84,6 +88,7 @@ input[type="password"]:focus {
   border: none;
   border-radius: 5px;
   color: white;
+  min-width: 0;
 }
 
 .tag-input:focus {
@@ -103,8 +108,29 @@ input[type="password"]:focus {
 
 .task-item:hover {
   cursor: pointer;
+  background-color: #353d44;
+  border-radius: 5px;
 }
 
-/* .checkmark {
-  background-color: #1f2228;
-} */
+.hide-edit {
+  display: none;
+}
+
+.hide-delete {
+  display: none;
+}
+
+.hide-edit:hover {
+  color: #1ac743;
+}
+
+.hide-delete:hover {
+  color: #f75268;
+}
+
+.task-item:hover > .hide-delete {
+  display: flex;
+}
+.task-item:hover > .hide-edit {
+  display: flex;
+}

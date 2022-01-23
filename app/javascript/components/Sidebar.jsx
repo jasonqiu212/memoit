@@ -33,6 +33,18 @@ function Sidebar(props) {
       });
   };
 
+  const handleTagDelete = (id) => {
+    const link = "http://localhost:3000/tags/" + id;
+    axios
+      .delete(link, { withCredentials: true })
+      .then((response) => {
+        getTags();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const handleTagChange = (event) => {};
 
   return (
@@ -51,12 +63,16 @@ function Sidebar(props) {
               <Link
                 to="/"
                 key={key}
-                className="d-flex fs-6 fw-bold p-1 nav-link"
+                className="d-flex fs-6 fw-bold p-1 nav-link align-items-center"
               >
                 <i className="bi bi-layers-fill tag-icon"></i>
                 <div className="container">
                   <p className="my-0">{tag.title}</p>
                 </div>
+                <i
+                  className="bi bi-x-circle ms-auto hide-delete"
+                  onClick={(event) => handleTagDelete(tag.id)}
+                ></i>
               </Link>
             );
           })}
@@ -69,7 +85,7 @@ function Sidebar(props) {
           <p className="my-0">New tag</p>
         </div>
         <div onClick={() => handleLogoutClick()} className="btn-hover p-1">
-          <i className="bi bi-sliders"></i>
+          <i className="bi bi-box-arrow-left"></i>
         </div>
       </div>
     </div>
