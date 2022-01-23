@@ -56,10 +56,16 @@ input[type="password"]:focus {
   text-decoration: none;
   color: #fff;
   padding-left: 0;
+  border-radius: 5px;
 }
 
 .nav-link:hover {
-  color: #3e7ef5;
+  background-color: #353d44;
+  color: #fff;
+}
+
+.nav-link:active {
+  color: #fff;
 }
 
 .tag-icon {

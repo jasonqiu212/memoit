@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get '/tasks/all', to: 'tasks#index'
   get '/tasks/tag', to: 'tasks#tagIndex'
   post '/tasks', to: 'tasks#create'
-  put '/tasks/:id', to: 'tasks#update'
-  put '/tasks/completedStatus/:id', to: 'tasks#updateCompletedStatus'
+  put '/tasks/', to: 'tasks#update'
+  put '/tasks/completedStatus', to: 'tasks#updateCompletedStatus'
   delete '/tasks/:id', to: 'tasks#destroy'
 
   get '/tags', to: 'tags#index'

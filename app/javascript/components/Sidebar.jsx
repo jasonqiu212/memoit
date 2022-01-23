@@ -32,22 +32,24 @@ function Sidebar(props) {
       });
   };
 
+  const handleTagChange = (event) => {};
+
   return (
     <div className="d-flex flex-column sidebar col-md-3 p-4">
       <h2 className="fw-bold">memoit</h2>
-      <Link to="/" className="d-flex flex-row fs-6 fw-bold nav-link">
+      <Link to="/" className="d-flex flex-row fs-6 fw-bold nav-link p-1 my-4">
         <i className="bi bi-star-fill star-icon"></i>
         <div className="container">
-          <p>All</p>
+          <p className="my-0">All</p>
         </div>
       </Link>
       {tagsData &&
         tagsData.map((tag, key) => {
           return (
             <Link
-              to="/tag"
+              to="/"
               key={key}
-              className="d-flex flex-row fs-6 fw-bold nav-link py-0"
+              className="d-flex flex-row fs-6 fw-bold p-1 nav-link"
             >
               <i className="bi bi-layers-fill tag-icon"></i>
               <div className="container">

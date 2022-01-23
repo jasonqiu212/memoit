@@ -81,6 +81,7 @@ function App() {
               <Home
                 loggedInStatus={loggedInStatus}
                 handleLogout={handleLogout}
+                activeTag={"All"}
               />
             ) : (
               <Navigate to="/login" />

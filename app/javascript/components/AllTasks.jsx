@@ -9,7 +9,30 @@ function AllTasks(props) {
     axios
       .get("http://localhost:3000/tasks/all", { withCredentials: true })
       .then((response) => {
+        console.log(response.data);
         setTasksData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleCompletedStatusChange = (completed, id) => {
+    console.log(!completed);
+    axios
+      .put(
+        "http://localhost:3000/tasks/completedStatus",
+        {
+          task: {
+            completed: !completed,
+            id: id,
+          },
+        },
+        { withCredentials: true }
+      )
+      .then((response) => {
+        console.log(response.data);
+        getTasks();
       })
       .catch((error) => {
         console.log(error);
@@ -29,7 +52,13 @@ function AllTasks(props) {
       <div className="py-2">
         {tasksData &&
           tasksData.map((task, key) => {
-            return <Task task={task} key={key} />;
+            return (
+              <Task
+                task={task}
+                key={key}
+                handleCompletedStatusChange={handleCompletedStatusChange}
+              />
+            );
           })}
       </div>
     </div>

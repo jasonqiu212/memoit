@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    task = Task.where(user_id: session[:user_id])
+    task = Task.where(user_id: session[:user_id]).where(completed: false)
     render json: task
   end
 
@@ -27,7 +27,11 @@ class TasksController < ApplicationController
 
   def update; end
 
-  def updateCompletedStatus; end
+  def updateCompletedStatus
+    task = Task.find_by(id: params['task']['id'])
+    task.update(completed: params['task']['completed'])
+    render json: { status: :created, task: task }
+  end
 
   def destroy
     User.find(params['id']).destroy
