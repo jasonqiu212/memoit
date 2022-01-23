@@ -18,7 +18,6 @@ function AllTasks(props) {
   };
 
   const handleCompletedStatusChange = (completed, id) => {
-    console.log(!completed);
     axios
       .put(
         "http://localhost:3000/tasks/completedStatus",

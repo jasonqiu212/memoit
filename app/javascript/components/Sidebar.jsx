@@ -11,7 +11,7 @@ function Sidebar(props) {
     axios
       .get("http://localhost:3000/tags", { withCredentials: true })
       .then((response) => {
-        setTagsData(response.data);
+        setTagsData(response.data.filter((tag) => tag.title !== "All"));
       })
       .catch((error) => {
         console.log(error);

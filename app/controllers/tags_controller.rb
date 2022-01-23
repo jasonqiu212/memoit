@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def index
-    tag = Tag.where(user_id: session[:user_id]).where.not(title: 'All')
+    tag = Tag.where(user_id: session[:user_id])
     render json: tag
   end
 
