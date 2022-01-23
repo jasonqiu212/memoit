@@ -5,6 +5,7 @@ import NewTag from "./NewTag";
 
 function Sidebar(props) {
   const [tagsData, setTagsData] = useState("");
+  const [showNewTag, setShowNewTag] = useState(false);
 
   const getTags = () => {
     axios
@@ -50,7 +51,7 @@ function Sidebar(props) {
               <Link
                 to="/"
                 key={key}
-                className="d-flex flex-row fs-6 fw-bold p-1 nav-link"
+                className="d-flex fs-6 fw-bold p-1 nav-link"
               >
                 <i className="bi bi-layers-fill tag-icon"></i>
                 <div className="container">
@@ -59,10 +60,10 @@ function Sidebar(props) {
               </Link>
             );
           })}
-        <br />
+        {showNewTag && <NewTag />}
       </div>
       <hr />
-      <div className="d-flex">
+      <div className="d-flex" onClick={() => setShowNewTag(!showNewTag)}>
         <div className="d-flex me-auto btn-hover p-1">
           <i className="bi bi-plus-lg"></i>
           <p className="my-0">New tag</p>

@@ -70,11 +70,26 @@ input[type="password"]:focus {
 .btn-hover {
   border: 1px solid #181a1c;
   border-radius: 5px;
+  background-color: #181a1c;
+  color: #fff;
 }
 
 .btn-hover:hover {
   cursor: pointer;
   border-color: gray;
+}
+
+.tag-input {
+  background-color: #353d44;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.tag-input:focus {
+  background-color: #353d44;
+  border: none;
+  color: white;
 }
 
 /* Main content */
