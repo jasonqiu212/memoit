@@ -27,6 +27,8 @@ class TasksController < ApplicationController
 
   def update; end
 
+  def updateCompletedStatus; end
+
   def destroy
     User.find(params['id']).destroy
   end

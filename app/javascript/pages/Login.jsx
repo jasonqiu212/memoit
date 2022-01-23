@@ -40,7 +40,7 @@ function Login(props) {
   }
 
   return (
-    <section className="my-4 d-flex justify-content-center text-white">
+    <section className="py-4 d-flex justify-content-center text-white">
       <div className="rounded container row col-lg-5 shadow d-flex justify-content-center text-center py-5">
         <h1 className="fw-bold">memoit</h1>
         <h3 className="fw-bolder mb-4">Welcome back!</h3>

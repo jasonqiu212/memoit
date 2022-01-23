@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/tasks/tag', to: 'tasks#tagIndex'
   post '/tasks', to: 'tasks#create'
   put '/tasks/:id', to: 'tasks#update'
+  put '/tasks/completedStatus/:id', to: 'tasks#updateCompletedStatus'
   delete '/tasks/:id', to: 'tasks#destroy'
 
   get '/tags', to: 'tags#index'

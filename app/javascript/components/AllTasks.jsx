@@ -21,17 +21,17 @@ function AllTasks(props) {
   }, []);
 
   return (
-    <div className="col-md-9 ms-sm-auto main-content h-100">
-      <h2>All Tasks</h2>
-      {tasksData &&
-        tasksData.map((task, key) => {
-          return (
-            <div key={key}>
-              <Task task={task} />
-              <br />
-            </div>
-          );
-        })}
+    <div className="col-md-9 ms-sm-auto main-content h-100 p-5">
+      <h3 className="fw-bold">
+        <i className="bi bi-star-fill star-icon"></i>
+        {"   "}All
+      </h3>
+      <div className="py-2">
+        {tasksData &&
+          tasksData.map((task, key) => {
+            return <Task task={task} key={key} />;
+          })}
+      </div>
     </div>
   );
 }

@@ -52,10 +52,33 @@ input[type="password"]:focus {
   background-color: #181a1c;
 }
 
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  padding-left: 0;
+}
+
+.nav-link:hover {
+  color: #3e7ef5;
+}
+
+.tag-icon {
+  color: gray;
+}
+
 /* Main content */
 .main-content {
-  position: absolute;
-  right: 0;
-  bottom: 0;
   background-color: #1f2228;
 }
+
+.star-icon {
+  color: gold;
+}
+
+.task-item:hover {
+  cursor: pointer;
+}
+
+/* .checkmark {
+  background-color: #1f2228;
+} */

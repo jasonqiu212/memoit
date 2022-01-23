@@ -33,19 +33,30 @@ function Sidebar(props) {
   };
 
   return (
-    <div className="d-flex flex-column sidebar col-md-3">
-      <h2>Sidebar component</h2>
-      <Link to="/">All</Link>
-      <br />
+    <div className="d-flex flex-column sidebar col-md-3 p-4">
+      <h2 className="fw-bold">memoit</h2>
+      <Link to="/" className="d-flex flex-row fs-6 fw-bold nav-link">
+        <i className="bi bi-star-fill star-icon"></i>
+        <div className="container">
+          <p>All</p>
+        </div>
+      </Link>
       {tagsData &&
         tagsData.map((tag, key) => {
           return (
-            <div key={key}>
-              <Link to="/tag">{tag.title}</Link>
-              <br />
-            </div>
+            <Link
+              to="/tag"
+              key={key}
+              className="d-flex flex-row fs-6 fw-bold nav-link py-0"
+            >
+              <i className="bi bi-layers-fill tag-icon"></i>
+              <div className="container">
+                <p className="my-0">{tag.title}</p>
+              </div>
+            </Link>
           );
         })}
+      <br />
       <NewTag />
       <button onClick={() => handleLogoutClick()}>Log out</button>
     </div>
