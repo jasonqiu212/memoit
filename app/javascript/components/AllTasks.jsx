@@ -9,7 +9,6 @@ function AllTasks(props) {
     axios
       .get("http://localhost:3000/tasks/all", { withCredentials: true })
       .then((response) => {
-        console.log(response.data);
         setTasksData(response.data);
       })
       .catch((error) => {
@@ -31,7 +30,18 @@ function AllTasks(props) {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response.data);
+        getTasks();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleTaskDelete = (id) => {
+    const link = "http://localhost:3000/tasks/" + id;
+    axios
+      .delete(link, { withCredentials: true })
+      .then((response) => {
         getTasks();
       })
       .catch((error) => {
@@ -57,6 +67,7 @@ function AllTasks(props) {
                 task={task}
                 key={key}
                 handleCompletedStatusChange={handleCompletedStatusChange}
+                handleTaskDelete={handleTaskDelete}
               />
             );
           })}

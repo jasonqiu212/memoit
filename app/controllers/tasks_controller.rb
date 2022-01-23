@@ -34,6 +34,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    User.find(params['id']).destroy
+    Task.destroy_by(id: params['id'])
   end
 end

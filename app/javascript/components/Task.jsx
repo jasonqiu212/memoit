@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 
 function Task(props) {
@@ -19,7 +20,10 @@ function Task(props) {
       </div>
 
       <i className="bi bi-pencil-square ms-auto p-2 hide-edit"></i>
-      <i className="bi bi-x-circle ms-auto p-2 hide-delete"></i>
+      <i
+        className="bi bi-x-circle ms-auto p-2 hide-delete"
+        onClick={(event) => props.handleTaskDelete(props.task.id)}
+      ></i>
     </div>
   );
 }
