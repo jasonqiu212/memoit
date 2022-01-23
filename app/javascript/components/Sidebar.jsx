@@ -85,7 +85,7 @@ function Sidebar(props) {
           <p className="my-0">New tag</p>
         </div>
         <div onClick={() => handleLogoutClick()} className="btn-hover p-1">
-          <i className="bi bi-box-arrow-left"></i>
+          <i className="bi bi-box-arrow-right"></i>
         </div>
       </div>
     </div>

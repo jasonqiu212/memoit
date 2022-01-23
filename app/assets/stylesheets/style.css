@@ -42,7 +42,6 @@ input[type="password"]:focus {
 .sidebar {
   position: absolute;
   top: 0;
-  left: 0;
   bottom: 0;
   background-color: #181a1c;
 }
@@ -99,7 +98,10 @@ input[type="password"]:focus {
 
 /* Main content */
 .main-content {
+  position: relative;
   background-color: #1f2228;
+  top: 0;
+  bottom: 0;
 }
 
 .star-icon {
@@ -133,4 +135,37 @@ input[type="password"]:focus {
 }
 .task-item:hover > .hide-edit {
   display: flex;
+}
+
+.add-btn {
+  color: #3e7ef5;
+  border: 1px solid #1f2228;
+  border-radius: 5px;
+}
+
+.add-btn:hover {
+  background-color: #3e7ef5;
+  cursor: pointer;
+  border-color: #3e7ef5;
+  color: #fff;
+}
+
+/* Add task modal */
+
+.modal-main {
+  background-color: #181a1c;
+}
+
+.task-input {
+  background-color: #353d44;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  min-width: 0;
+}
+
+.task-input:focus {
+  background-color: #353d44;
+  border: none;
+  color: white;
 }

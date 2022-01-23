@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Task from "./Task";
+import NewTask from "./NewTask";
 
 function AllTasks(props) {
   const [tasksData, setTasksData] = useState("");
@@ -54,12 +55,13 @@ function AllTasks(props) {
   }, []);
 
   return (
-    <div className="col-md-9 ms-sm-auto main-content h-100 p-5">
+    <div className="d-flex flex-column col-md-9 ms-sm-auto main-content h-100 py-4 px-5">
+      <NewTask />
       <h3 className="fw-bold">
         <i className="bi bi-star-fill star-icon"></i>
         {"   "}All
       </h3>
-      <div className="py-2">
+      <div className="py-2 mb-auto overflow-auto">
         {tasksData &&
           tasksData.map((task, key) => {
             return (
@@ -71,6 +73,15 @@ function AllTasks(props) {
               />
             );
           })}
+      </div>
+      <hr />
+      <div
+        className="d-flex add-btn p-1 me-auto"
+        data-bs-toggle="modal"
+        data-bs-target="#newTask"
+      >
+        <i className="bi bi-plus-lg"></i>
+        <p className="my-0">New task</p>
       </div>
     </div>
   );
