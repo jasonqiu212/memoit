@@ -36,31 +36,41 @@ function Sidebar(props) {
 
   return (
     <div className="d-flex flex-column sidebar col-md-3 p-4">
-      <h2 className="fw-bold">memoit</h2>
-      <Link to="/" className="d-flex flex-row fs-6 fw-bold nav-link p-1 my-4">
-        <i className="bi bi-star-fill star-icon"></i>
-        <div className="container">
-          <p className="my-0">All</p>
+      <div className="mb-auto overflow-auto">
+        <h2 className="fw-bold">memoit</h2>
+        <Link to="/" className="d-flex flex-row fs-6 fw-bold nav-link p-1 my-4">
+          <i className="bi bi-star-fill star-icon"></i>
+          <div className="container">
+            <p className="my-0">All</p>
+          </div>
+        </Link>
+        {tagsData &&
+          tagsData.map((tag, key) => {
+            return (
+              <Link
+                to="/"
+                key={key}
+                className="d-flex flex-row fs-6 fw-bold p-1 nav-link"
+              >
+                <i className="bi bi-layers-fill tag-icon"></i>
+                <div className="container">
+                  <p className="my-0">{tag.title}</p>
+                </div>
+              </Link>
+            );
+          })}
+        <br />
+      </div>
+      <hr />
+      <div className="d-flex">
+        <div className="d-flex me-auto btn-hover p-1">
+          <i className="bi bi-plus-lg"></i>
+          <p className="my-0">New tag</p>
         </div>
-      </Link>
-      {tagsData &&
-        tagsData.map((tag, key) => {
-          return (
-            <Link
-              to="/"
-              key={key}
-              className="d-flex flex-row fs-6 fw-bold p-1 nav-link"
-            >
-              <i className="bi bi-layers-fill tag-icon"></i>
-              <div className="container">
-                <p className="my-0">{tag.title}</p>
-              </div>
-            </Link>
-          );
-        })}
-      <br />
-      <NewTag />
-      <button onClick={() => handleLogoutClick()}>Log out</button>
+        <div onClick={() => handleLogoutClick()} className="btn-hover p-1">
+          <i className="bi bi-sliders"></i>
+        </div>
+      </div>
     </div>
   );
 }

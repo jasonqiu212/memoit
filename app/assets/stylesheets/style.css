@@ -1,8 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-
 html,
 body {
   background-color: #0f1315;
@@ -70,6 +65,16 @@ input[type="password"]:focus {
 
 .tag-icon {
   color: gray;
+}
+
+.btn-hover {
+  border: 1px solid #181a1c;
+  border-radius: 5px;
+}
+
+.btn-hover:hover {
+  cursor: pointer;
+  border-color: gray;
 }
 
 /* Main content */
