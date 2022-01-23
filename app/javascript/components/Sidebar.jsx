@@ -21,8 +21,19 @@ function Sidebar(props) {
     getTags();
   }, []);
 
+  const handleLogoutClick = () => {
+    axios
+      .delete("http://localhost:3000/logout", { withCredentials: true })
+      .then((response) => {
+        props.handleLogout();
+      })
+      .catch((error) => {
+        console.log("Logout error", error);
+      });
+  };
+
   return (
-    <div>
+    <div className="d-flex flex-column sidebar col-md-3">
       <h2>Sidebar component</h2>
       <Link to="/">All</Link>
       <br />
@@ -36,6 +47,7 @@ function Sidebar(props) {
           );
         })}
       <NewTag />
+      <button onClick={() => handleLogoutClick()}>Log out</button>
     </div>
   );
 }

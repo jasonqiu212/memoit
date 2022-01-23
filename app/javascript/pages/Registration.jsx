@@ -44,10 +44,10 @@ function Registration(props) {
   }
 
   return (
-    <section className="my-4 d-flex justify-content-center">
-      <div className="container row col-lg-5 shadow d-flex justify-content-center text-center py-5">
-        <h1 className="fw-bold text-white">memoit</h1>
-        <h3 className="fw-bolder text-white mb-4">Register now!</h3>
+    <section className="my-4 d-flex justify-content-center text-white">
+      <div className="rounded container row col-lg-5 shadow d-flex justify-content-center text-center py-5">
+        <h1 className="fw-bold">memoit</h1>
+        <h3 className="fw-bolder mb-4">Register now!</h3>
         <form
           onSubmit={handleSubmit}
           className="row col-lg-10 justify-content-center"
@@ -86,10 +86,10 @@ function Registration(props) {
             Sign Up
           </button>
         </form>
-        <p className="text-white">
+        <p>
           Already on memoit?{" "}
-          <Link to="/login" className="text-decoration-none">
-            Log in
+          <Link to="/login" className="link">
+            Log in here
           </Link>
         </p>
       </div>

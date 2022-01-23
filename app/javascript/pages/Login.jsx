@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "../../assets/stylesheets/login.css";
 
 function Login(props) {
   const [loginData, setLoginData] = useState({
@@ -41,10 +40,10 @@ function Login(props) {
   }
 
   return (
-    <section className="my-4 d-flex justify-content-center">
-      <div className="container row col-lg-5 shadow d-flex justify-content-center text-center py-5">
-        <h1 className="fw-bold text-white">memoit</h1>
-        <h3 className="fw-bolder text-white mb-4">Welcome back!</h3>
+    <section className="my-4 d-flex justify-content-center text-white">
+      <div className="rounded container row col-lg-5 shadow d-flex justify-content-center text-center py-5">
+        <h1 className="fw-bold">memoit</h1>
+        <h3 className="fw-bolder mb-4">Welcome back!</h3>
         <form
           onSubmit={handleSubmit}
           className="row col-lg-10 justify-content-center"
@@ -74,9 +73,9 @@ function Login(props) {
             Login
           </button>
         </form>
-        <p className="text-white">
+        <p>
           Don't have an account?{" "}
-          <Link to="/registration" className="text-decoration-none">
+          <Link to="/registration" className="link">
             Register here
           </Link>
         </p>

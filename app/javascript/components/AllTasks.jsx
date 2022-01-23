@@ -21,7 +21,7 @@ function AllTasks(props) {
   }, []);
 
   return (
-    <div>
+    <div className="col-md-9 ms-sm-auto main-content h-100">
       <h2>All Tasks</h2>
       {tasksData &&
         tasksData.map((task, key) => {

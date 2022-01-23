@@ -3,12 +3,15 @@
   margin: 0;
 }
 
+html,
 body {
-  background: #0f1315;
+  background-color: #0f1315;
+  height: 100%;
 }
 
+/* Login and Registration page */
 .row {
-  background: #1f2228;
+  background-color: #1f2228;
 }
 
 input[type="email"],
@@ -33,4 +36,26 @@ input[type="password"]:focus {
 
 .login-button {
   border-radius: 20px;
+}
+
+.link {
+  color: #3e7ef5;
+  text-decoration: none;
+}
+
+/* Sidebar */
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #181a1c;
+}
+
+/* Main content */
+.main-content {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: #1f2228;
 }
