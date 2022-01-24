@@ -32,6 +32,8 @@ function Login(props) {
       .then((response) => {
         if (response.data.logged_in) {
           props.handleSuccessfulAuth(response.data);
+        } else {
+          window.alert("Incorrect email or password.");
         }
       })
       .catch((error) => {

@@ -39,7 +39,7 @@ function Registration(props) {
         }
       })
       .catch((error) => {
-        console.log("Registration error", error);
+        console.log(error);
       });
     event.preventDefault();
   }

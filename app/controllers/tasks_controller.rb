@@ -1,11 +1,21 @@
 class TasksController < ApplicationController
   def index
-    task = Task.where(user_id: session[:user_id]).where(completed: false)
+    task = Task.where(user_id: session[:user_id])
     render json: task
   end
 
   def getTagTasks
-    task = Task.where(tag_id: params['id']).where(completed: false)
+    task = Task.where(tag_id: params['id'])
+    render json: task
+  end
+
+  def getAllCompleted
+    task = Task.where(user_id: session[:user_id]).where(completed: true)
+    render json: task
+  end
+
+  def getTagTasksCompleted
+    task = Task.where(tag_id: params['id']).where(completed: true)
     render json: task
   end
 

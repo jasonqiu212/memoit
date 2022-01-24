@@ -15,13 +15,16 @@ function Tasks(props) {
     tagID: -1,
   });
   const [tasksData, setTasksData] = useState("");
+  const [completedTasksData, setCompletedTasksData] = useState("");
+  const [showCompleted, setShowCompleted] = useState(false);
 
   const getTasks = () => {
     if (currentTag.tagID == -1) {
       axios
         .get(APIRoutes.url + "/tasks/all", { withCredentials: true })
         .then((response) => {
-          setTasksData(response.data);
+          setTasksData(response.data.filter((task) => !task.completed));
+          setCompletedTasksData(response.data.filter((task) => task.completed));
         })
         .catch((error) => {
           console.log(error);
@@ -31,7 +34,8 @@ function Tasks(props) {
       axios
         .get(link, { withCredentials: true })
         .then((response) => {
-          setTasksData(response.data);
+          setTasksData(response.data.filter((task) => !task.completed));
+          setCompletedTasksData(response.data.filter((task) => task.completed));
         })
         .catch((error) => {
           console.log(error);
@@ -80,6 +84,10 @@ function Tasks(props) {
     });
   };
 
+  const showCompletedTasks = () => {
+    setShowCompleted(!showCompleted);
+  };
+
   useEffect(() => {
     getTasks();
   }, [currentTag]);
@@ -96,9 +104,28 @@ function Tasks(props) {
         )}
         {"   " + currentTag.title}
       </h3>
-      <div className="py-2 mb-auto overflow-auto">
+      <div className="d-flex flex-column py-2 mb-auto overflow-auto">
         {tasksData &&
           tasksData.map((task, key) => {
+            return (
+              <Task
+                task={task}
+                key={key}
+                changeCompletedStatus={changeCompletedStatus}
+                deleteTask={deleteTask}
+                editTask={editTask}
+              />
+            );
+          })}
+        <div
+          onClick={(event) => showCompletedTasks()}
+          className="show-btn fs-6 p-1 me-auto mt-2"
+        >
+          {showCompleted ? "Hide completed tasks" : "Show completed tasks"}
+        </div>
+        {showCompleted &&
+          completedTasksData &&
+          completedTasksData.map((task, key) => {
             return (
               <Task
                 task={task}

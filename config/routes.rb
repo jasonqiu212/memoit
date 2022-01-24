@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/tasks/all', to: 'tasks#index'
   get '/tasks/tag/:id', to: 'tasks#getTagTasks'
+  get '/tasks/all/completed', to: 'tasks#getAllCompleted'
+  get '/tasks/tag/completed/:id', to: 'tasks#getTagTasksCompleted'
   post '/tasks', to: 'tasks#create'
   put '/tasks', to: 'tasks#update'
   put '/tasks/completedStatus', to: 'tasks#updateCompletedStatus'
