@@ -25,7 +25,15 @@ class TasksController < ApplicationController
     end
   end
 
-  def update; end
+  def update
+    task = Task.find_by(id: params['task']['id'])
+    task.update(
+      title: params['task']['title'],
+      description: params['task']['description'],
+      tag_id: params['task']['tag_id'],
+    )
+    render json: { status: :updated, task: task }
+  end
 
   def updateCompletedStatus
     task = Task.find_by(id: params['task']['id'])

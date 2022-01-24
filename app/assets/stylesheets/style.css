@@ -108,10 +108,13 @@ input[type="password"]:focus {
   color: gold;
 }
 
+.task-item {
+  border-radius: 5px;
+}
+
 .task-item:hover {
   cursor: pointer;
   background-color: #353d44;
-  border-radius: 5px;
 }
 
 .hide-edit {

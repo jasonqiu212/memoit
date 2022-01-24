@@ -2,8 +2,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Task from "./Task";
 import NewTask from "./NewTask";
+import EditTask from "./EditTask";
 
-function AllTasks(props) {
+function Tasks(props) {
+  const [taskToEdit, setTaskToEdit] = useState({
+    id: -1,
+    title: "",
+    description: "",
+    tagID: -1,
+  });
   const [tasksData, setTasksData] = useState("");
 
   const getTasks = () => {
@@ -17,7 +24,7 @@ function AllTasks(props) {
       });
   };
 
-  const handleCompletedStatusChange = (completed, id) => {
+  const changeCompletedStatus = (completed, id) => {
     axios
       .put(
         "http://localhost:3000/tasks/completedStatus",
@@ -37,7 +44,7 @@ function AllTasks(props) {
       });
   };
 
-  const handleTaskDelete = (id) => {
+  const deleteTask = (id) => {
     const link = "http://localhost:3000/tasks/" + id;
     axios
       .delete(link, { withCredentials: true })
@@ -49,6 +56,15 @@ function AllTasks(props) {
       });
   };
 
+  const editTask = (task) => {
+    setTaskToEdit({
+      id: task.id,
+      title: task.title,
+      description: task.description,
+      tagID: task.tag_id,
+    });
+  };
+
   useEffect(() => {
     getTasks();
   }, []);
@@ -56,6 +72,7 @@ function AllTasks(props) {
   return (
     <div className="d-flex flex-column col-md-9 ms-sm-auto main-content h-100 py-4 px-5">
       <NewTask />
+      <EditTask taskToEdit={taskToEdit} />
       <h3 className="fw-bold">
         <i className="bi bi-star-fill star-icon"></i>
         {"   "}All
@@ -67,8 +84,9 @@ function AllTasks(props) {
               <Task
                 task={task}
                 key={key}
-                handleCompletedStatusChange={handleCompletedStatusChange}
-                handleTaskDelete={handleTaskDelete}
+                changeCompletedStatus={changeCompletedStatus}
+                deleteTask={deleteTask}
+                editTask={editTask}
               />
             );
           })}
@@ -86,4 +104,4 @@ function AllTasks(props) {
   );
 }
 
-export default AllTasks;
+export default Tasks;

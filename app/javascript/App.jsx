@@ -3,8 +3,7 @@ import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import AllTasks from "./components/AllTasks";
-import TagTasks from "./components/TagTasks";
+import Tasks from "./components/Tasks";
 import Registration from "./pages/Registration";
 
 function App() {
@@ -88,8 +87,7 @@ function App() {
             )
           }
         >
-          <Route path="/" element={<AllTasks />} />
-          <Route path="tag" element={<TagTasks />} />
+          <Route path="/" element={<Tasks />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

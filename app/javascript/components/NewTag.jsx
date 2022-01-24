@@ -24,15 +24,18 @@ function NewTag(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="d-flex fs-6 p-1">
+    <form
+      onSubmit={handleSubmit}
+      className="d-flex fs-6 p-1 align-items-center"
+    >
       <i className="bi bi-layers-fill tag-icon"></i>
       <input
         name="title"
         placeholder="New tag"
+        className="form-control tag-input flex-grow-1 mx-2"
         value={tagTitle}
         onChange={handleChange}
         required
-        className="tag-input flex-grow-1 mx-2"
       ></input>
       <button type="submit" className="btn-hover">
         <i className="bi bi-arrow-right-circle"></i>

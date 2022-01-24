@@ -62,7 +62,7 @@ function NewTask(props) {
         className="modal fade"
         id="newTask"
         tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
+        aria-labelledby="newTaskModal"
         aria-hidden="true"
       >
         <div className="modal-dialog modal-dialog-centered">
@@ -72,14 +72,14 @@ function NewTask(props) {
                 <input
                   name="title"
                   placeholder="Task title"
-                  className="task-input py-2 my-2"
+                  className="form-control task-input py-2 my-2"
                   value={taskData.title}
                   onChange={handleChange}
                   required
                 ></input>
                 <select
                   name="tagID"
-                  className="task-input py-2 my-2"
+                  className="form-control task-input py-2 my-2"
                   value={taskData.tagID}
                   onChange={handleChange}
                 >
@@ -95,7 +95,7 @@ function NewTask(props) {
                 <textarea
                   name="description"
                   placeholder="Note"
-                  className="task-input py-2 my-2"
+                  className="form-control task-input py-2 my-2"
                   value={taskData.description}
                   onChange={handleChange}
                 ></textarea>
