@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import Task from "./Task";
 import NewTask from "./NewTask";
 import EditTask from "./EditTask";
 
 function Tasks(props) {
+  const currentTag = useOutletContext();
   const [taskToEdit, setTaskToEdit] = useState({
     id: -1,
     title: "",
@@ -14,14 +16,26 @@ function Tasks(props) {
   const [tasksData, setTasksData] = useState("");
 
   const getTasks = () => {
-    axios
-      .get("http://localhost:3000/tasks/all", { withCredentials: true })
-      .then((response) => {
-        setTasksData(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (currentTag.tagID == -1) {
+      axios
+        .get("http://localhost:3000/tasks/all", { withCredentials: true })
+        .then((response) => {
+          setTasksData(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      const link = "http://localhost:3000/tasks/tag/" + currentTag.tagID;
+      axios
+        .get(link, { withCredentials: true })
+        .then((response) => {
+          setTasksData(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   const changeCompletedStatus = (completed, id) => {
@@ -67,15 +81,19 @@ function Tasks(props) {
 
   useEffect(() => {
     getTasks();
-  }, []);
+  }, [currentTag]);
 
   return (
     <div className="d-flex flex-column col-md-9 ms-sm-auto main-content h-100 py-4 px-5">
       <NewTask />
       <EditTask taskToEdit={taskToEdit} />
       <h3 className="fw-bold">
-        <i className="bi bi-star-fill star-icon"></i>
-        {"   "}All
+        {currentTag.tagID == -1 ? (
+          <i className="bi bi-star-fill star-icon"></i>
+        ) : (
+          <i className="bi bi-layers-fill tag-icon"></i>
+        )}
+        {"   " + currentTag.title}
       </h3>
       <div className="py-2 mb-auto overflow-auto">
         {tasksData &&

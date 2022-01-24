@@ -4,8 +4,8 @@ class TasksController < ApplicationController
     render json: task
   end
 
-  def tagIndex
-    task = Task.where(tag_id: params['tag_id'])
+  def getTagTasks
+    task = Task.where(tag_id: params['id']).where(completed: false)
     render json: task
   end
 

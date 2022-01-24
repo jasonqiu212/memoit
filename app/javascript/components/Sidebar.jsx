@@ -45,25 +45,26 @@ function Sidebar(props) {
       });
   };
 
-  const handleTagChange = (event) => {};
-
   return (
     <div className="d-flex flex-column sidebar col-md-3 p-4">
       <div className="mb-auto overflow-auto">
         <h2 className="fw-bold">memoit</h2>
-        <Link to="/" className="d-flex flex-row fs-6 fw-bold nav-link p-1 my-4">
+        <div
+          className="d-flex flex-row fs-6 fw-bold nav-link p-1 my-4"
+          onClick={(event) => props.filterTag(-1, "All")}
+        >
           <i className="bi bi-star-fill star-icon"></i>
           <div className="container">
             <p className="my-0">All</p>
           </div>
-        </Link>
+        </div>
         {tagsData &&
           tagsData.map((tag, key) => {
             return (
-              <Link
-                to="/"
+              <div
                 key={key}
                 className="d-flex fs-6 fw-bold p-1 nav-link align-items-center"
+                onClick={(event) => props.filterTag(tag.id, tag.title)}
               >
                 <i className="bi bi-layers-fill tag-icon"></i>
                 <div className="container">
@@ -73,7 +74,7 @@ function Sidebar(props) {
                   className="bi bi-x-circle ms-auto hide-delete"
                   onClick={(event) => handleTagDelete(tag.id)}
                 ></i>
-              </Link>
+              </div>
             );
           })}
         {showNewTag && <NewTag />}

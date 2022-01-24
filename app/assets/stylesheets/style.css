@@ -56,6 +56,7 @@ input[type="password"]:focus {
 .nav-link:hover {
   background-color: #353d44;
   color: #fff;
+  cursor: pointer;
 }
 
 .nav-link:hover > .hide-delete {
@@ -113,7 +114,6 @@ input[type="password"]:focus {
 }
 
 .task-item:hover {
-  cursor: pointer;
   background-color: #353d44;
 }
 
@@ -127,10 +127,12 @@ input[type="password"]:focus {
 
 .hide-edit:hover {
   color: #1ac743;
+  cursor: pointer;
 }
 
 .hide-delete:hover {
   color: #f75268;
+  cursor: pointer;
 }
 
 .task-item:hover > .hide-delete {
