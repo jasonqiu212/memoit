@@ -1,15 +1,176 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+html,
+body {
+  background-color: #0f1315;
+  height: 100%;
+}
+
+/* Login and Registration page */
+.row {
+  background-color: #1f2228;
+}
+
+input[type="email"],
+input[type="password"] {
+  background-color: #353d44;
+  border: none;
+  border-radius: 20px;
+  color: white;
+}
+
+input[type="email"]:focus {
+  background-color: #353d44;
+  border: none;
+  color: white;
+}
+
+input[type="password"]:focus {
+  background-color: #353d44;
+  border: none;
+  color: white;
+}
+
+.login-button {
+  border-radius: 20px;
+}
+
+.link {
+  color: #3e7ef5;
+  text-decoration: none;
+}
+
+/* Sidebar */
+.sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #181a1c;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  padding-left: 0;
+  border-radius: 5px;
+}
+
+.nav-link:hover {
+  background-color: #353d44;
+  color: #fff;
+  cursor: pointer;
+}
+
+.nav-link:hover > .hide-delete {
+  display: flex;
+}
+
+.nav-link:active {
+  color: #fff;
+}
+
+.tag-icon {
+  color: gray;
+}
+
+.btn-hover {
+  border: 1px solid #181a1c;
+  border-radius: 5px;
+  background-color: #181a1c;
+  color: #fff;
+}
+
+.btn-hover:hover {
+  cursor: pointer;
+  border-color: gray;
+}
+
+.tag-input {
+  background-color: #353d44;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  min-width: 0;
+}
+
+.tag-input:focus {
+  background-color: #353d44;
+  border: none;
+  color: white;
+}
+
+/* Main content */
+.main-content {
+  position: relative;
+  background-color: #1f2228;
+  top: 0;
+  bottom: 0;
+}
+
+.star-icon {
+  color: gold;
+}
+
+.task-item {
+  border-radius: 5px;
+}
+
+.task-item:hover {
+  background-color: #353d44;
+}
+
+.hide-edit {
+  display: none;
+}
+
+.hide-delete {
+  display: none;
+}
+
+.hide-edit:hover {
+  color: #1ac743;
+  cursor: pointer;
+}
+
+.hide-delete:hover {
+  color: #f75268;
+  cursor: pointer;
+}
+
+.task-item:hover > .hide-delete {
+  display: flex;
+}
+.task-item:hover > .hide-edit {
+  display: flex;
+}
+
+.add-btn {
+  color: #3e7ef5;
+  border: 1px solid #1f2228;
+  border-radius: 5px;
+}
+
+.add-btn:hover {
+  background-color: #3e7ef5;
+  cursor: pointer;
+  border-color: #3e7ef5;
+  color: #fff;
+}
+
+/* Add task modal */
+
+.modal-main {
+  background-color: #181a1c;
+}
+
+.task-input {
+  background-color: #353d44;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  min-width: 0;
+}
+
+.task-input:focus {
+  background-color: #353d44;
+  border: none;
+  color: white;
+}
