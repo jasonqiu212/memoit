@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import APIRoutes from "../utilities/APIRoutes";
 
 function NewTask(props) {
   const [tagsData, setTagsData] = useState("");
@@ -7,7 +8,7 @@ function NewTask(props) {
 
   const getTagsData = () => {
     axios
-      .get("http://localhost:3000/tags", { withCredentials: true })
+      .get(APIRoutes.url + "/tags", { withCredentials: true })
       .then((response) => {
         setTagsData(response.data);
         const allID = response.data.filter((tag) => tag.title == "All")[0].id;
@@ -37,7 +38,7 @@ function NewTask(props) {
     const { title, description, tagID } = taskData;
     axios
       .post(
-        "http://localhost:3000/tasks",
+        APIRoutes.url + "/tasks",
         {
           task: {
             title: title,

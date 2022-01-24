@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import APIRoutes from "../utilities/APIRoutes";
 import Task from "./Task";
 import NewTask from "./NewTask";
 import EditTask from "./EditTask";
@@ -18,7 +19,7 @@ function Tasks(props) {
   const getTasks = () => {
     if (currentTag.tagID == -1) {
       axios
-        .get("http://localhost:3000/tasks/all", { withCredentials: true })
+        .get(APIRoutes.url + "/tasks/all", { withCredentials: true })
         .then((response) => {
           setTasksData(response.data);
         })
@@ -26,7 +27,7 @@ function Tasks(props) {
           console.log(error);
         });
     } else {
-      const link = "http://localhost:3000/tasks/tag/" + currentTag.tagID;
+      const link = APIRoutes.url + "/tasks/tag/" + currentTag.tagID;
       axios
         .get(link, { withCredentials: true })
         .then((response) => {
@@ -41,7 +42,7 @@ function Tasks(props) {
   const changeCompletedStatus = (completed, id) => {
     axios
       .put(
-        "http://localhost:3000/tasks/completedStatus",
+        APIRoutes.url + "/tasks/completedStatus",
         {
           task: {
             completed: !completed,
@@ -59,7 +60,7 @@ function Tasks(props) {
   };
 
   const deleteTask = (id) => {
-    const link = "http://localhost:3000/tasks/" + id;
+    const link = APIRoutes.url + "/tasks/" + id;
     axios
       .delete(link, { withCredentials: true })
       .then((response) => {

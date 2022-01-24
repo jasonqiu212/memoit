@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import APIRoutes from "../utilities/APIRoutes";
 
 function Registration(props) {
   const [registrationData, setRegistrationData] = useState({
@@ -20,7 +21,7 @@ function Registration(props) {
     const { email, password, password_confirmation } = registrationData;
     axios
       .post(
-        "http://localhost:3000/registrations",
+        APIRoutes.url + "/registrations",
         {
           user: {
             email: email,

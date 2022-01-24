@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
+import APIRoutes from "./utilities/APIRoutes";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Tasks from "./components/Tasks";
@@ -28,7 +29,7 @@ function App() {
 
   function checkLoginStatus() {
     axios
-      .get("http://localhost:3000/logged_in", { withCredentials: true })
+      .get(APIRoutes.url + "/logged_in", { withCredentials: true })
       .then((response) => {
         if (response.data.logged_in && loggedInStatus !== "LOGGED_IN") {
           setLoggedInStatus("LOGGED_IN");

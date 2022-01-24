@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import APIRoutes from "../utilities/APIRoutes";
 import NewTag from "./NewTag";
 
 function Sidebar(props) {
@@ -9,7 +9,7 @@ function Sidebar(props) {
 
   const getTags = () => {
     axios
-      .get("http://localhost:3000/tags", { withCredentials: true })
+      .get(APIRoutes.url + "/tags", { withCredentials: true })
       .then((response) => {
         setTagsData(response.data.filter((tag) => tag.title !== "All"));
       })
@@ -24,7 +24,7 @@ function Sidebar(props) {
 
   const handleLogoutClick = () => {
     axios
-      .delete("http://localhost:3000/logout", { withCredentials: true })
+      .delete(APIRoutes.url + "/logout", { withCredentials: true })
       .then((response) => {
         props.handleLogout();
       })
@@ -34,7 +34,7 @@ function Sidebar(props) {
   };
 
   const handleTagDelete = (id) => {
-    const link = "http://localhost:3000/tags/" + id;
+    const link = APIRoutes.url + "/tags/" + id;
     axios
       .delete(link, { withCredentials: true })
       .then((response) => {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import APIRoutes from "../utilities/APIRoutes";
 
 function NewTag(props) {
   const [tagTitle, setTagTitle] = useState("");
@@ -11,7 +12,7 @@ function NewTag(props) {
   const handleSubmit = (event) => {
     axios
       .post(
-        "http://localhost:3000/tags",
+        APIRoutes.url + "/tags",
         { title: tagTitle },
         { withCredentials: true }
       )

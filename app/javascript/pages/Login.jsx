@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import APIRoutes from "../utilities/routes";
 
 function Login(props) {
   const [loginData, setLoginData] = useState({
@@ -17,9 +18,10 @@ function Login(props) {
 
   function handleSubmit(event) {
     const { email, password } = loginData;
+    console.log(APIRoutes.url);
     axios
       .post(
-        "http://localhost:3000/sessions",
+        APIRoutes.url + "/sessions",
         {
           user: {
             email: email,
