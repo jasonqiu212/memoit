@@ -84,8 +84,11 @@ function Sidebar(props) {
         )}
       </div>
       <hr />
-      <div className="d-flex" onClick={() => handleShowNewTagChange()}>
-        <div className="d-flex me-auto btn-hover p-1">
+      <div className="d-flex">
+        <div
+          className="d-flex me-auto btn-hover p-1"
+          onClick={() => handleShowNewTagChange()}
+        >
           <i className="bi bi-plus-lg"></i>
           <p className="my-0">New tag</p>
         </div>

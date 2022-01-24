@@ -22,7 +22,6 @@ function Home(props) {
     axios
       .get(APIRoutes.url + "/tags", { withCredentials: true })
       .then((response) => {
-        console.log("get new tags!");
         setTagsData(response.data.filter((tag) => tag.title !== "All"));
         setAllID(response.data.filter((tag) => tag.title == "All")[0].id);
       })
