@@ -3,12 +3,16 @@ import axios from "axios";
 import APIRoutes from "../utilities/routes";
 
 function NewTag(props) {
+  // State to store user input for new tag
   const [tagTitle, setTagTitle] = useState("");
 
+  // Updates state when user edits input
   const handleChange = (event) => {
     setTagTitle(event.target.value);
   };
 
+  // Calls API to create new tag and hides input
+  // and refreshes tags
   const handleSubmit = (event) => {
     axios
       .post(

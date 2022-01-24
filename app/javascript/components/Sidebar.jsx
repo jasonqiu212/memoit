@@ -1,28 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import APIRoutes from "../utilities/routes";
 import NewTag from "./NewTag";
 
 function Sidebar(props) {
-  const [tagsData, setTagsData] = useState("");
+  // State to store whether to show input to create new tag
   const [showNewTag, setShowNewTag] = useState(false);
 
-  const getTags = () => {
-    axios
-      .get(APIRoutes.url + "/tags", { withCredentials: true })
-      .then((response) => {
-        console.log("get new tags!");
-        setTagsData(response.data.filter((tag) => tag.title !== "All"));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    getTags();
-  }, []);
-
+  // Call API to clear current session and redirects user to login page
   const handleLogoutClick = () => {
     axios
       .delete(APIRoutes.url + "/logout", { withCredentials: true })
@@ -34,6 +19,7 @@ function Sidebar(props) {
       });
   };
 
+  // Call API to delete specified tag
   const handleTagDelete = (id) => {
     if (
       confirm(
@@ -44,7 +30,7 @@ function Sidebar(props) {
       axios
         .delete(link, { withCredentials: true })
         .then((response) => {
-          getTags();
+          props.getTags();
           props.filterTag(-1, "All");
         })
         .catch((error) => {
@@ -53,6 +39,7 @@ function Sidebar(props) {
     }
   };
 
+  // Toggle state to show or hide input for creating new tag
   const handleShowNewTagChange = () => {
     setShowNewTag(!showNewTag);
   };
@@ -70,8 +57,8 @@ function Sidebar(props) {
             <p className="my-0">All</p>
           </div>
         </div>
-        {tagsData &&
-          tagsData.map((tag, key) => {
+        {props.tagsData &&
+          props.tagsData.map((tag, key) => {
             return (
               <div
                 key={key}
@@ -91,7 +78,7 @@ function Sidebar(props) {
           })}
         {showNewTag && (
           <NewTag
-            getTags={getTags}
+            getTags={props.getTags}
             handleShowNewTagChange={handleShowNewTagChange}
           />
         )}

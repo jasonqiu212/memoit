@@ -3,28 +3,17 @@ import axios from "axios";
 import APIRoutes from "../utilities/routes";
 
 function EditTask(props) {
-  const [tagsData, setTagsData] = useState("");
+  // State to store user inputs when editing task
   const [taskToEdit, setTaskToEdit] = useState(props.taskToEdit);
 
-  const getTagsData = () => {
-    axios
-      .get(APIRoutes.url + "/tags", { withCredentials: true })
-      .then((response) => {
-        setTagsData(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    getTagsData();
-  }, []);
-
+  // Update state to original task details when user has
+  // selected a task to edit (or updates when there's
+  // a change to props.taskToEdit)
   useEffect(() => {
     setTaskToEdit(props.taskToEdit);
   }, [props.taskToEdit]);
 
+  // Updates state when user edits inputs
   const handleChange = (event) => {
     setTaskToEdit((prev) => ({
       ...prev,
@@ -32,6 +21,7 @@ function EditTask(props) {
     }));
   };
 
+  // Calls API to update task details
   const handleSubmit = (event) => {
     const { id, title, description, tagID } = taskToEdit;
     axios
@@ -48,11 +38,12 @@ function EditTask(props) {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response);
+        props.getTasks();
       })
       .catch((error) => {
         console.log(error);
       });
+    event.preventDefault();
   };
 
   return (
@@ -81,8 +72,9 @@ function EditTask(props) {
                 value={taskToEdit.tagID}
                 onChange={handleChange}
               >
-                {tagsData &&
-                  tagsData.map((tag, key) => {
+                <option value={props.allID}>All</option>
+                {props.tagsData &&
+                  props.tagsData.map((tag, key) => {
                     return (
                       <option key={key} value={tag.id}>
                         {tag.title}
@@ -106,7 +98,11 @@ function EditTask(props) {
               >
                 Cancel
               </button>
-              <button type="submit" className="btn btn-primary">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                data-bs-dismiss="modal"
+              >
                 Update
               </button>
             </div>

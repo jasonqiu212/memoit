@@ -88,7 +88,6 @@ function App() {
             )
           }
         >
-          <Route path="/" element={<Tasks />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
