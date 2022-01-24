@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import APIRoutes from "../utilities/APIRoutes";
+import APIRoutes from "../utilities/routes";
 import Task from "./Task";
 import NewTask from "./NewTask";
 import EditTask from "./EditTask";

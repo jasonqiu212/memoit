@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import APIRoutes from "../utilities/APIRoutes";
+import APIRoutes from "../utilities/routes";
 
 function NewTag(props) {
   const [tagTitle, setTagTitle] = useState("");

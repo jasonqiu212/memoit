@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import APIRoutes from "../utilities/APIRoutes";
+import APIRoutes from "../utilities/routes";
 
 function Registration(props) {
   const [registrationData, setRegistrationData] = useState({

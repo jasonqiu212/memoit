@@ -18,7 +18,6 @@ function Login(props) {
 
   function handleSubmit(event) {
     const { email, password } = loginData;
-    console.log(APIRoutes.url);
     axios
       .post(
         APIRoutes.url + "/sessions",

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
-import APIRoutes from "./utilities/APIRoutes";
+import APIRoutes from "./utilities/routes";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Tasks from "./components/Tasks";
