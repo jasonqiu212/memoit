@@ -34,15 +34,22 @@ function Sidebar(props) {
   };
 
   const handleTagDelete = (id) => {
-    const link = APIRoutes.url + "/tags/" + id;
-    axios
-      .delete(link, { withCredentials: true })
-      .then((response) => {
-        getTags();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (
+      confirm(
+        "Are you sure?\nPlease note that all tasks under this tag will be deleted as well."
+      )
+    ) {
+      const link = APIRoutes.url + "/tags/" + id;
+      axios
+        .delete(link, { withCredentials: true })
+        .then((response) => {
+          getTags();
+          props.filterTag(-1, "All");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return (
