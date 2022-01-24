@@ -17,11 +17,13 @@ function NewTag(props) {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response);
+        props.handleShowNewTagChange();
+        props.getTags();
       })
       .catch((error) => {
         console.log(error);
       });
+    event.preventDefault();
   };
 
   return (

@@ -11,6 +11,7 @@ function Sidebar(props) {
     axios
       .get(APIRoutes.url + "/tags", { withCredentials: true })
       .then((response) => {
+        console.log("get new tags!");
         setTagsData(response.data.filter((tag) => tag.title !== "All"));
       })
       .catch((error) => {
@@ -52,6 +53,10 @@ function Sidebar(props) {
     }
   };
 
+  const handleShowNewTagChange = () => {
+    setShowNewTag(!showNewTag);
+  };
+
   return (
     <div className="d-flex flex-column sidebar col-md-3 p-4">
       <div className="mb-auto overflow-auto">
@@ -84,10 +89,15 @@ function Sidebar(props) {
               </div>
             );
           })}
-        {showNewTag && <NewTag />}
+        {showNewTag && (
+          <NewTag
+            getTags={getTags}
+            handleShowNewTagChange={handleShowNewTagChange}
+          />
+        )}
       </div>
       <hr />
-      <div className="d-flex" onClick={() => setShowNewTag(!showNewTag)}>
+      <div className="d-flex" onClick={() => handleShowNewTagChange()}>
         <div className="d-flex me-auto btn-hover p-1">
           <i className="bi bi-plus-lg"></i>
           <p className="my-0">New tag</p>

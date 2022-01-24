@@ -1,4 +1,5 @@
 class RegistrationsController < ApplicationController
+  # Create new user
   def create
     user =
       User.create!(
@@ -13,9 +14,5 @@ class RegistrationsController < ApplicationController
     else
       render json: { status: 500 }
     end
-  end
-
-  def destroy
-    User.find(params['id']).destroy
   end
 end

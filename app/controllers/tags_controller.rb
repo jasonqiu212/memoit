@@ -1,9 +1,11 @@
 class TagsController < ApplicationController
+  # Get all tags
   def index
     tag = Tag.where(user_id: session[:user_id])
     render json: tag
   end
 
+  # Create new tag
   def create
     tag = Tag.create!(title: params['title'], user_id: session[:user_id])
     if tag
@@ -13,8 +15,7 @@ class TagsController < ApplicationController
     end
   end
 
-  def update; end
-
+  # Delete tag and associated tasks
   def destroy
     Tag.destroy_by(id: params['id'])
   end

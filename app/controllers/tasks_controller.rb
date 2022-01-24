@@ -1,24 +1,17 @@
 class TasksController < ApplicationController
+  # Get all tasks
   def index
     task = Task.where(user_id: session[:user_id])
     render json: task
   end
 
+  # Get all tasks under specified tag
   def getTagTasks
     task = Task.where(tag_id: params['id'])
     render json: task
   end
 
-  def getAllCompleted
-    task = Task.where(user_id: session[:user_id]).where(completed: true)
-    render json: task
-  end
-
-  def getTagTasksCompleted
-    task = Task.where(tag_id: params['id']).where(completed: true)
-    render json: task
-  end
-
+  # Create new task
   def create
     task =
       Task.create!(
@@ -35,6 +28,7 @@ class TasksController < ApplicationController
     end
   end
 
+  # Update task
   def update
     task = Task.find_by(id: params['task']['id'])
     task.update(
@@ -45,12 +39,14 @@ class TasksController < ApplicationController
     render json: { status: :updated, task: task }
   end
 
+  # Update completed status of task
   def updateCompletedStatus
     task = Task.find_by(id: params['task']['id'])
     task.update(completed: params['task']['completed'])
     render json: { status: :created, task: task }
   end
 
+  # Delete task
   def destroy
     Task.destroy_by(id: params['id'])
   end
