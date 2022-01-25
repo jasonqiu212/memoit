@@ -117,6 +117,12 @@ function Tasks(props) {
         allID={props.allID}
         getTasks={getTasks}
       />
+      <div
+        className="sidebar-btn fs-3 mb-2"
+        onClick={() => props.setShowSidebar(true)}
+      >
+        <i className="bi bi-list"></i>
+      </div>
       <h3 className="fw-bold">
         {props.currentTag.tagID == -1 ? (
           <i className="bi bi-star-fill star-icon"></i>

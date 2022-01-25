@@ -11,6 +11,8 @@ function Home(props) {
   const [currentTag, setCurrentTag] = useState({ tagID: -1, title: "All" });
   // State to store tag ID for 'All' tag. (Used in NewTask)
   const [allID, setAllID] = useState(-1);
+  // State to store whether to show sidebar or not
+  const [showSidebar, setShowSidebar] = useState(false);
 
   // Change current selected tag
   const filterTag = (tagID, tagTitle) => {
@@ -42,8 +44,15 @@ function Home(props) {
         filterTag={filterTag}
         tagsData={tagsData}
         getTags={getTags}
+        showSidebar={showSidebar}
+        setShowSidebar={setShowSidebar}
       />
-      <Tasks currentTag={currentTag} tagsData={tagsData} allID={allID} />
+      <Tasks
+        currentTag={currentTag}
+        tagsData={tagsData}
+        allID={allID}
+        setShowSidebar={setShowSidebar}
+      />
     </div>
   );
 }

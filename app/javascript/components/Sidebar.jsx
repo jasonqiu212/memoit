@@ -45,9 +45,22 @@ function Sidebar(props) {
   };
 
   return (
-    <div className="d-flex flex-column sidebar col-md-3 p-4">
+    <div
+      className={
+        "d-flex flex-column col-md-3 p-4 " +
+        (props.showSidebar ? "sidebar-open" : "sidebar")
+      }
+    >
       <div className="mb-auto overflow-auto">
-        <h2 className="fw-bold">memoit</h2>
+        <div className="d-flex">
+          <h2 className="fw-bold">memoit</h2>
+          <div
+            className="ms-auto fs-3 sidebar-btn"
+            onClick={() => props.setShowSidebar(false)}
+          >
+            <i className="bi bi-x-circle"></i>
+          </div>
+        </div>
         <div
           className="d-flex flex-row fs-6 fw-bold nav-link p-1 my-4"
           onClick={(event) => props.filterTag(-1, "All")}
