@@ -1,11 +1,6 @@
-# CVWO Assignment - memoit
+# memoit
 
-**Name:** Jason Qiu\
-**Matriculation Number:** A0235206N
-
-## Deployment
-
-**Link:** https://shrouded-eyrie-79472.herokuapp.com/
+## Deployment - Will be updated soon
 
 ## Assignment Submissions
 
