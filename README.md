@@ -17,6 +17,7 @@ memoit was created as part of an application for [Computing for Voluntary Welfar
 
 - [User Guide](https://jasonqiu212.github.io/memoit/UserGuide.html)
 - [Requirements](https://jasonqiu212.github.io/memoit/Requirements.html)
+- [Reflection](https://jasonqiu212.github.io/memoit/Reflection.html)
 
 ## Getting Started
 
