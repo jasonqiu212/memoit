@@ -8,8 +8,8 @@ memoit is a **to-do list manager** web application made with React and Ruby on R
 
 ## Site Map
 
-- [User Guide](docs/UserGuide.md)
-- [Requirements](docs/Requirements.md)
+- [User Guide](https://jasonqiu212.github.io/memoit/UserGuide.html)
+- [Requirements](https://jasonqiu212.github.io/memoit/Requirements.html)
 
 ## Getting Started
 
