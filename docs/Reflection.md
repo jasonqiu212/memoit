@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Appendix
+title: Reflection
 ---
 
 This assignment can be described as a lot of firsts for me. Before this project, my experience with web development was limited to HTML, CSS, and simple PHP. It was my first time using React.js and Ruby on Rails with a RESTful API design. Although it was pretty overwhelming at the start to learn everything, this project was a valuable experience for me to formally learn how to build web applications with modern tech stacks. In the end, I am proud of what I have accomplished.
