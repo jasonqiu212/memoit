@@ -4,7 +4,12 @@
 
 ## Overview
 
-memoit is a to-do list manager web application made with React and Ruby on Rails.
+memoit is a **to-do list manager** web application made with React and Ruby on Rails.
+
+## Site Map
+
+- [User Guide](docs/UserGuide.md)
+- [Requirements](docs/Requirements.md)
 
 ## Getting Started
 
