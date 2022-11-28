@@ -4,7 +4,9 @@
 
 ## Overview
 
-memoit is a **to-do list manager** web application made with React and Ruby on Rails. Some of memoit's features include:
+[**memoit**](https://memoit-production.herokuapp.com/) is a **to-do list manager** web application made with React and Ruby on Rails.
+
+Some of memoit's features include:
 
 - :memo: Creating, editing, and deleting tasks
 - :zap: Tagging system to categorize tasks efficiently
@@ -13,8 +15,11 @@ memoit is a **to-do list manager** web application made with React and Ruby on R
 
 memoit was created as part of an application for [Computing for Voluntary Welfare Organisations](https://www.comp.nus.edu.sg/~vwo/).
 
+Start using [**memoit**](https://memoit-production.herokuapp.com/) now!
+
 ## Site Map
 
+- [Live Site](https://memoit-production.herokuapp.com/)
 - [User Guide](https://jasonqiu212.github.io/memoit/UserGuide.html)
 - [Requirements](https://jasonqiu212.github.io/memoit/Requirements.html)
 - [Reflection](https://jasonqiu212.github.io/memoit/Reflection.html)

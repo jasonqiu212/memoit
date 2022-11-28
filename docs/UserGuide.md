@@ -6,7 +6,7 @@ toc: true
 
 ## **About memoit**
 
-memoit is a **to-do list manager** web application designed to help anyone looking to record their daily tasks. As a user, you can easily **create, edit, and delete tasks**. Using memoit's **tagging system**, you can categorize tasks under specific tags. Finally, you can view your to-do list on **any web browser** through memoit's secure user authentication feature and mobile-friendly design.
+[**memoit**](https://memoit-production.herokuapp.com/){:target="_blank"} is a **to-do list manager** web application designed to help anyone looking to record their daily tasks. As a user, you can easily **create, edit, and delete tasks**. Using memoit's **tagging system**, you can categorize tasks under specific tags. Finally, you can view your to-do list on **any web browser** through memoit's secure user authentication feature and mobile-friendly design.
 
 This user guide details how to use memoit on a daily basis. Get started now by heading over to the [Getting Started](#getting-started) section!
 
@@ -22,7 +22,7 @@ This user guide details how to use memoit on a daily basis. Get started now by h
 
 ## **Getting Started**
 
-**Visit memoit at [link]()!**
+Visit memoit at [**https://memoit-production.herokuapp.com/**](https://memoit-production.herokuapp.com/){:target="_blank"}!
 
 After you open memoit, the application will appear as a login page.
 
