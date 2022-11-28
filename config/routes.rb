@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   # Routes for registration of new users
   post '/registrations', to: 'registrations#create'
 
-  # delete '/registrations/:id', to: 'registrations#destroy'
-
   # Routes for tasks
   get '/tasks/all', to: 'tasks#index'
   get '/tasks/tag/:id', to: 'tasks#getTagTasks'
